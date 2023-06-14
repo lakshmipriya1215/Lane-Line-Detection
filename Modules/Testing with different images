@@ -1,0 +1,11 @@
+import os
+for image_path in list(os.listdir('./test_images')):
+    fig = plt.figure(figsize=(20, 10))
+    image = mpimg.imread(f'./test_images/{image_path}')
+    ax = fig.add_subplot(1, 2, 1,xticks=[], yticks=[])
+    plt.imshow(image)
+    ax.set_title("Input Image")
+    ax = fig.add_subplot(1, 2, 2,xticks=[], yticks=[])
+    plt.imshow(lane_finding_pipeline(image))
+    ax.set_title("Output Image [Lane Line Detected]")
+    plt.show()
